@@ -1,21 +1,44 @@
-import java.util.Collections;
+import java.util.Scanner;
 
 /**
- * Classe principal com 3 cenarios de teste:
- *   1. Simples  - 2 objectos
- *   2. Medio    - 10 objectos de classes mistas
- *   3. Complexo - casos limite (catalogo vazio, ID duplicado, dados invalidos)
+ * Classe principal com menu interactivo para escolha do cenario de teste.
  */
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("==========================================");
-        System.out.println("  Catalogo Musical - Exercicio Interfaces");
-        System.out.println("==========================================");
+        Scanner scanner = new Scanner(System.in);
+        int opcao = -1;
 
-        cenarioSimples();
-        cenarioMedio();
-        cenarioComplexo();
+        do {
+            System.out.println("\n==========================================");
+            System.out.println("  Catalogo Musical - Exercicio Interfaces");
+            System.out.println("==========================================");
+            System.out.println("  1. Cenario Simples  (2 musicas)");
+            System.out.println("  2. Cenario Medio    (10 objectos)");
+            System.out.println("  3. Cenario Complexo (casos limite)");
+            System.out.println("  0. Sair");
+            System.out.println("==========================================");
+            System.out.print("Escolha uma opcao: ");
+
+            if (scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+            } else {
+                System.out.println("  Opcao invalida. Introduza um numero.");
+                scanner.next();
+                continue;
+            }
+
+            switch (opcao) {
+                case 1 -> cenarioSimples();
+                case 2 -> cenarioMedio();
+                case 3 -> cenarioComplexo();
+                case 0 -> System.out.println("\nA sair... Ate logo!");
+                default -> System.out.println("\n  Opcao invalida. Tente novamente.");
+            }
+
+        } while (opcao != 0);
+
+        scanner.close();
     }
 
     // ----------------------------------------------------------
@@ -49,7 +72,6 @@ public class Main {
 
         MusicCatalog catalogo = new MusicCatalog();
 
-        // 5 Musicas
         Song[] musicas = {
             new Song("S001", "Bohemian Rhapsody",      "Queen",      354),
             new Song("S002", "Hotel California",        "Eagles",     391),
@@ -64,13 +86,11 @@ public class Main {
         musicas[4].rate(4); musicas[4].rate(5);
         for (Song s : musicas) catalogo.addItem(s);
 
-        // 2 Podcasts
         Podcast p1 = new Podcast("P001", "Tech Talks #1",   "Lex Fridman", 3600);
         Podcast p2 = new Podcast("P002", "Code and Coffee", "DHH",         1800);
         catalogo.addItem(p1);
         catalogo.addItem(p2);
 
-        // 3 Albums
         Album a1 = new Album("A001", "A Night at the Opera", "Queen",      1975);
         Album a2 = new Album("A002", "Hotel California",      "Eagles",     1976);
         Album a3 = new Album("A003", "Divide",                "Ed Sheeran", 2017);
@@ -90,7 +110,6 @@ public class Main {
         System.out.printf("Avaliacao media            : %.2f%n", catalogo.averageRating());
         System.out.println("Melhor avaliado            : " + catalogo.topRated());
 
-        // Demonstracao do Cloneable
         System.out.println("\n=== Demonstracao Cloneable ===");
         Podcast clonado = p1.clone();
         System.out.println("Original : " + p1);
@@ -106,13 +125,11 @@ public class Main {
 
         MusicCatalog catalogo = new MusicCatalog();
 
-        // Catalogo vazio
         System.out.println("-- Catalogo vazio --");
         catalogo.playAll();
         catalogo.listRateable();
         System.out.println("Duracao total: " + catalogo.totalDuration() + "s");
 
-        // ID duplicado
         System.out.println("\n-- Teste de ID duplicado --");
         catalogo.addItem(new Song("S001", "Musica Valida", "Artista A", 180));
         try {
@@ -121,7 +138,6 @@ public class Main {
             System.out.println("  Erro apanhado: " + e.getMessage());
         }
 
-        // Dados invalidos
         System.out.println("\n-- Teste de dados invalidos --");
         try { new Song("", "Sem ID", "Artista", 120); }
         catch (IllegalArgumentException e) { System.out.println("  Erro apanhado: " + e.getMessage()); }
