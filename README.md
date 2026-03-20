@@ -76,21 +76,21 @@ Pelo menos 2 classes implementam mais do que uma interface.
 
 ---
 
-## Cenarios de Teste
+## Cenários de Teste
 
-### Cenario 1 - Simples (2 objectos)
-2 objectos Song adicionados, avaliados, reproduzidos e ordenados.
+### Cenário 1 - Simples (2 objetos)
+2 objetos Song adicionados, avaliados, reproduzidos e ordenados.
 Demonstra: playAll(), listSortedSongs(), totalDuration(), averageRating().
 
-### Cenario 2 - Medio (10 objectos)
+### Cenário 2 - Médio (10 objetos)
 5 Songs + 2 Podcasts + 3 Albums.
-Demonstra: todos os metodos de percurso e calculo, ordenacao por Comparable,
-ordenacao por Comparator, demonstracao do Cloneable.
+Demonstra: todos os métodos de percurso e cálculo, ordenação por Comparable,
+ordenação por Comparator, demonstração do Cloneable.
 
-### Cenario 3 - Complexo (Casos Limite)
-- Catalogo vazio (sem erros)
+### Cenário 3 - Complexo (Casos Limite)
+- Catálogo vazio (sem erros)
 - ID duplicado -> IllegalArgumentException apanhada
-- Dados invalidos: ID vazio, duracao negativa, avaliacao invalida, ano invalido
+- Dados inválidos: ID vazio, duração negativa, avaliação inválida, ano inválido
 
 ---
 
