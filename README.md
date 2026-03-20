@@ -45,7 +45,7 @@ Pelo menos 2 classes implementam mais do que uma interface.
 - playAll()      - percorre o catálogo e chama play() em cada item interfaces.Playable.
 - listRateable() - filtra e imprime todos os items interfaces.Rateable.
 
-### B. Calculos
+### B. Cálculos
 - totalDuration()       - soma getDuration() de todos os items interfaces.Playable.
 - averageRating()       - média das avaliações de todos os items interfaces.Rateable avaliados.
 - topRated()            - devolve o item com a avaliação média mais alta.
