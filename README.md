@@ -1,19 +1,19 @@
-# 01. Exercicio Interfaces - Catalogo de Musicas
+# 01. Exercicio Interfaces - Catálogo de Músicas
 
-**UC:** Algoritmia e Programacao | ECGM - IPVC
-**Tema:** Catalogo de Musicas em Streaming (Musicas, Podcasts, Albums)
+**UC:** Algoritmia e Programação | ECGM - IPVC
+**Tema:** Catálogo de Músicas em Streaming (Músicas, Podcasts, Álbuns)
 
 ---
 
 ## Interfaces Criadas
 
-| Interface      | Metodos                                            | Proposito                               |
+| Interface      | Métodos                                            | Propósito                               |
 |----------------|----------------------------------------------------|-----------------------------------------|
-| interfaces.Identifiable   | getId(), getTitle()                                | Objectos com identidade unica           |
+| interfaces.Identifiable   | getId(), getTitle()                                | Objetos com identidade única           |
 | interfaces.Playable       | play(), getDuration(), printPlayInfo() (default)   | Itens que podem ser reproduzidos        |
-| interfaces.Rateable       | rate(int), getRating()                             | Itens que podem receber avaliacoes      |
+| interfaces.Rateable       | rate(int), getRating()                             | Itens que podem receber avaliações      |
 
-A interface interfaces.Playable tem 3 metodos (cumpre: pelo menos 1 interface com mais do que 1 metodo).
+A interface interfaces.Playable tem 3 métodos (cumpre: pelo menos 1 interface com mais do que 1 método).
 
 ---
 
@@ -31,48 +31,48 @@ Pelo menos 2 classes implementam mais do que uma interface.
 
 ## Interfaces Built-in do Java Utilizadas
 
-1. Comparable<Song> - Song implementa compareTo() para ordenar alfabeticamente por titulo.
+1. Comparable<Song> - Song implementa compareTo() para ordenar alfabeticamente por título.
    Utilizado em MusicCatalog.listSortedSongs() via Collections.sort().
 
-2. Cloneable - Podcast sobrepoe clone() para criar uma copia superficial.
-   Demonstrado no Cenario 2 (Demonstracao Cloneable).
+2. Cloneable - Podcast sobrepoe clone() para criar uma cópia superficial.
+   Demonstrado no Cenário 2 (Demonstração Cloneable).
 
 ---
 
 ## Funcionalidades Implementadas
 
 ### A. Percurso
-- playAll()      - percorre o catalogo e chama play() em cada item interfaces.Playable.
+- playAll()      - percorre o catálogo e chama play() em cada item interfaces.Playable.
 - listRateable() - filtra e imprime todos os items interfaces.Rateable.
 
 ### B. Calculos
 - totalDuration()       - soma getDuration() de todos os items interfaces.Playable.
-- averageRating()       - media das avaliacoes de todos os items interfaces.Rateable avaliados.
-- topRated()            - devolve o item com a avaliacao media mais alta.
-- listSongsByDuration() - ordenacao alternativa por duracao usando Comparator.
+- averageRating()       - média das avaliações de todos os items interfaces.Rateable avaliados.
+- topRated()            - devolve o item com a avaliação média mais alta.
+- listSongsByDuration() - ordenação alternativa por duração usando Comparator.
 
 ---
 
 ## Regras Adicionais Utilizadas
 
-1. Validacao de dados + tratamento de erros
-   Os construtores de Song, Podcast e Album lancam IllegalArgumentException para:
-   - ID ou titulo vazio/nulo
-   - Duracao negativa ou zero
-   - Ano invalido no Album (fora de 1900-2100)
-   - Avaliacao fora do intervalo 1-5
+1. Validação de dados + tratamento de erros
+   Os construtores de Song, Podcast e Album lançam IllegalArgumentException para:
+   - ID ou título vazio/nulo
+   - Duração negativa ou zero
+   - Ano inválido no Album (fora de 1900-2100)
+   - Avaliação fora do intervalo 1-5
 
 2. Evitar duplicados
    MusicCatalog.addItem() usa um HashSet<String> de IDs.
-   Adicionar um item com um ID ja existente lanca IllegalArgumentException.
+   Adicionar um item com um ID já existente lança IllegalArgumentException.
 
-3. Ordenacao alternativa com Comparator
-   listSongsByDuration() ordena por duracao (crescente) como alternativa
-   a ordem natural alfabetica (Comparable).
+3. Ordenação alternativa com Comparator
+   listSongsByDuration() ordena por duração (crescente) como alternativa
+   a ordem natural alfabética (Comparable).
 
-4. Metodo default numa interface
-   interfaces.Playable.printPlayInfo() e um metodo default que formata e imprime
-   a duracao; disponivel automaticamente em todas as classes que implementam interfaces.Playable.
+4. Método default numa interface
+   interfaces.Playable.printPlayInfo() é um método default que formata e imprime
+   a duração; disponível automaticamente em todas as classes que implementam interfaces.Playable.
 
 ---
 
@@ -94,9 +94,14 @@ ordenação por Comparator, demonstração do Cloneable.
 
 ---
 
-## Como Compilar e Executar
+## Como Executar
 
-  javac *.java
-  java Main
+Ao executar, aparece um menu interactivo com as seguintes opções:
+  1 - Cenário Simples  (2 músicas)
+  2 - Cenário Médio    (10 objetos)
+  3 - Cenário Complexo (casos limite)
+  0 - Sair
 
-Todos os ficheiros .java devem estar na mesma pasta.
+Introduza o número do cenário pretendido e prima Enter.
+O menu repete-se até o utilizador escolher a opção 0 para sair.
+
