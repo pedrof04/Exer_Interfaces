@@ -1,3 +1,5 @@
+package interfaces;
+
 /**
  * Interface para objectos que podem ser reproduzidos (musicas, podcasts, etc.).
  * Contem metodos para reproduzir e obter a duracao.

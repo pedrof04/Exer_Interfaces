@@ -1,3 +1,7 @@
+import interfaces.Identifiable;
+import interfaces.Playable;
+import interfaces.Rateable;
+
 import java.util.*;
 
 /**
@@ -25,7 +29,7 @@ public class MusicCatalog {
 
     // --- Funcionalidade A: Percurso ---
 
-    /** Percorre e reproduz todos os items Playable do catalogo. */
+    /** Percorre e reproduz todos os items interfaces.Playable do catalogo. */
     public void playAll() {
         System.out.println("\n=== Reproduzir Todos os Items ===");
         boolean encontrou = false;
@@ -38,7 +42,7 @@ public class MusicCatalog {
         if (!encontrou) System.out.println("  (sem items reproduziveis)");
     }
 
-    /** Filtra e lista todos os items Rateable do catalogo. */
+    /** Filtra e lista todos os items interfaces.Rateable do catalogo. */
     public void listRateable() {
         System.out.println("\n=== Items Avaliáveis ===");
         boolean encontrou = false;
@@ -53,7 +57,7 @@ public class MusicCatalog {
 
     // --- Funcionalidade B: Calculos ---
 
-    /** Calcula a duracao total (em segundos) de todos os items Playable. */
+    /** Calcula a duracao total (em segundos) de todos os items interfaces.Playable. */
     public int totalDuration() {
         int total = 0;
         for (Identifiable item : items)
@@ -62,7 +66,7 @@ public class MusicCatalog {
         return total;
     }
 
-    /** Calcula a avaliacao media de todos os items Rateable com pelo menos uma avaliacao. */
+    /** Calcula a avaliacao media de todos os items interfaces.Rateable com pelo menos uma avaliacao. */
     public double averageRating() {
         double soma = 0; int conta = 0;
         for (Identifiable item : items) {
@@ -74,7 +78,7 @@ public class MusicCatalog {
         return conta == 0 ? 0.0 : soma / conta;
     }
 
-    /** Devolve o item Rateable com a avaliacao mais alta. */
+    /** Devolve o item interfaces.Rateable com a avaliacao mais alta. */
     public Identifiable topRated() {
         Identifiable melhor = null; double max = -1;
         for (Identifiable item : items) {

@@ -1,9 +1,13 @@
+import interfaces.Identifiable;
+import interfaces.Playable;
+import interfaces.Rateable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Representa uma musica.
- * Implementa: Playable, Rateable, Identifiable, Comparable<Song> (interface built-in do Java).
+ * Implementa: interfaces.Playable, interfaces.Rateable, interfaces.Identifiable, Comparable<Song> (interface built-in do Java).
  * Ordem natural (Comparable): ordem alfabetica pelo titulo.
  */
 public class Song implements Playable, Rateable, Identifiable, Comparable<Song> {
@@ -33,7 +37,7 @@ public class Song implements Playable, Rateable, Identifiable, Comparable<Song> 
     @Override
     public void play() {
         System.out.println("A reproduzir musica: \"" + title + "\" de " + artist);
-        printPlayInfo(); // metodo default da interface Playable
+        printPlayInfo(); // metodo default da interface interfaces.Playable
     }
 
     @Override public int getDuration() { return duration; }

@@ -1,6 +1,9 @@
+import interfaces.Identifiable;
+import interfaces.Playable;
+
 /**
  * Representa um episodio de podcast.
- * Implementa: Playable, Identifiable, Cloneable (interface built-in do Java).
+ * Implementa: interfaces.Playable, interfaces.Identifiable, Cloneable (interface built-in do Java).
  */
 public class Podcast implements Playable, Identifiable, Cloneable {
 
@@ -27,7 +30,7 @@ public class Podcast implements Playable, Identifiable, Cloneable {
     @Override
     public void play() {
         System.out.println("A reproduzir podcast: \"" + title + "\" apresentado por " + host);
-        printPlayInfo(); // metodo default da interface Playable
+        printPlayInfo(); // metodo default da interface interfaces.Playable
     }
 
     @Override public int getDuration() { return duration; }

@@ -1,9 +1,12 @@
+import interfaces.Identifiable;
+import interfaces.Rateable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Representa um album de musica.
- * Implementa: Rateable, Identifiable.
+ * Implementa: interfaces.Rateable, interfaces.Identifiable.
  */
 public class Album implements Rateable, Identifiable {
 

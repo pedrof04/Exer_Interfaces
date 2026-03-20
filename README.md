@@ -1,7 +1,7 @@
-# 01. Exercicio Interfaces - Catalogo Musical
+# 01. Exercicio Interfaces - Catalogo de Musicas
 
 **UC:** Algoritmia e Programacao | ECGM - IPVC
-**Tema:** Catalogo de Musica em Streaming (Musicas, Podcasts, Albums)
+**Tema:** Catalogo de Musicas em Streaming (Musicas, Podcasts, Albums)
 
 ---
 
@@ -9,11 +9,11 @@
 
 | Interface      | Metodos                                            | Proposito                               |
 |----------------|----------------------------------------------------|-----------------------------------------|
-| Identifiable   | getId(), getTitle()                                | Objectos com identidade unica           |
-| Playable       | play(), getDuration(), printPlayInfo() (default)   | Itens que podem ser reproduzidos        |
-| Rateable       | rate(int), getRating()                             | Itens que podem receber avaliacoes      |
+| interfaces.Identifiable   | getId(), getTitle()                                | Objectos com identidade unica           |
+| interfaces.Playable       | play(), getDuration(), printPlayInfo() (default)   | Itens que podem ser reproduzidos        |
+| interfaces.Rateable       | rate(int), getRating()                             | Itens que podem receber avaliacoes      |
 
-A interface Playable tem 3 metodos (cumpre: pelo menos 1 interface com mais do que 1 metodo).
+A interface interfaces.Playable tem 3 metodos (cumpre: pelo menos 1 interface com mais do que 1 metodo).
 
 ---
 
@@ -21,9 +21,9 @@ A interface Playable tem 3 metodos (cumpre: pelo menos 1 interface com mais do q
 
 | Classe  | Interfaces Implementadas                                   |
 |---------|------------------------------------------------------------|
-| Song    | Playable, Rateable, Identifiable, Comparable<Song>         |
-| Podcast | Playable, Identifiable, Cloneable                          |
-| Album   | Rateable, Identifiable                                     |
+| Song    | interfaces.Playable, interfaces.Rateable, interfaces.Identifiable, Comparable<Song>         |
+| Podcast | interfaces.Playable, interfaces.Identifiable, Cloneable                          |
+| Album   | interfaces.Rateable, interfaces.Identifiable                                     |
 
 Pelo menos 2 classes implementam mais do que uma interface.
 
@@ -42,12 +42,12 @@ Pelo menos 2 classes implementam mais do que uma interface.
 ## Funcionalidades Implementadas
 
 ### A. Percurso
-- playAll()      - percorre o catalogo e chama play() em cada item Playable.
-- listRateable() - filtra e imprime todos os items Rateable.
+- playAll()      - percorre o catalogo e chama play() em cada item interfaces.Playable.
+- listRateable() - filtra e imprime todos os items interfaces.Rateable.
 
 ### B. Calculos
-- totalDuration()       - soma getDuration() de todos os items Playable.
-- averageRating()       - media das avaliacoes de todos os items Rateable avaliados.
+- totalDuration()       - soma getDuration() de todos os items interfaces.Playable.
+- averageRating()       - media das avaliacoes de todos os items interfaces.Rateable avaliados.
 - topRated()            - devolve o item com a avaliacao media mais alta.
 - listSongsByDuration() - ordenacao alternativa por duracao usando Comparator.
 
@@ -71,8 +71,8 @@ Pelo menos 2 classes implementam mais do que uma interface.
    a ordem natural alfabetica (Comparable).
 
 4. Metodo default numa interface
-   Playable.printPlayInfo() e um metodo default que formata e imprime
-   a duracao; disponivel automaticamente em todas as classes que implementam Playable.
+   interfaces.Playable.printPlayInfo() e um metodo default que formata e imprime
+   a duracao; disponivel automaticamente em todas as classes que implementam interfaces.Playable.
 
 ---
 
